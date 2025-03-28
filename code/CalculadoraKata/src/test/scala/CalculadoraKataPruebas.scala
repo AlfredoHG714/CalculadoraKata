@@ -27,6 +27,11 @@ class CalculadoraKataPruebas extends AnyFunSuite {
     assert(resultado == 17)
   }
 
+  test("Validar 7 elementos") {
+    val resultado = CalculadoraKata.Add("7,1,4,2,3,1,4")
+    assert(resultado == 21)
+  }
+
   test("Validar comas  y saltos de línea") {
     val resultado = CalculadoraKata.Add("7" + "," + "1" + "," + "4" + "\n" +
       "2" + "\n" +
@@ -39,5 +44,4 @@ class CalculadoraKataPruebas extends AnyFunSuite {
       "2" + ",")
     assert(resultado == 14)
   }
-
 }

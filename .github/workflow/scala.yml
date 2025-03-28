@@ -20,4 +20,3 @@ jobs:
     - name: Run tests
       run: sbt test
       working-directory: ./code/CalculadoraKata
-      

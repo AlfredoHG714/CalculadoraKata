@@ -1,0 +1,34 @@
+bundle:
+  name: Grupo1
+
+artifacts:
+  1.jar:
+    path: /mnt/c/Code/CalculadoraKata/code/CalculadoraKata/
+    build: "sbt clean compile package"
+    type: jar
+
+  2.dbfs:
+    type: dbfs
+    build: "databricks fs mkdirs dbfs:/ejercicio/AlfredoHG/jar/ && databricks fs cp /mnt/c/Code/CalculadoraKata/code/CalculadoraKata/target/scala-2.12/calculadorakata_2.12-0.1.0-SNAPSHOT.jar dbfs:/ejercicio/AlfredoHG/jar/ --overwrite"
+
+targets:
+  Carlos:
+    sync:
+      include:
+        - ./README.md
+      exclude:
+        - ./databricks.yml
+    workspace:
+      host: https://adb-2881534574092176.16.azuredatabricks.net/
+      root_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target1
+
+  Michelle:
+    sync:
+      exclude:
+        - ./*
+    workspace:
+      host: https://adb-3297164511614972.12.azuredatabricks.net/
+      root_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target2/
+      file_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target2/
+      state_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target2/
+      artifact_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target2/

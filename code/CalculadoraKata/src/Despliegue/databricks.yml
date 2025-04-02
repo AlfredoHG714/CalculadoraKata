@@ -9,7 +9,7 @@ artifacts:
 
   2.dbfs:
     type: dbfs
-    build: "databricks fs mkdirs dbfs:/ejercicio/AlfredoHG/jar/ && databricks fs cp /mnt/c/Code/CalculadoraKata/code/CalculadoraKata/target/scala-2.12/calculadorakata_2.12-0.1.0-SNAPSHOT.jar dbfs:/ejercicio/AlfredoHG/jar/ --overwrite"
+    build: "databricks fs mkdirs dbfs:/ejercicio/AlfredoHG/jar/ -t Michelle && databricks fs cp /mnt/c/Code/CalculadoraKata/code/CalculadoraKata/target/scala-2.12/calculadorakata_2.12-0.1.0-SNAPSHOT.jar dbfs:/ejercicio/AlfredoHG/jar/ --overwrite"
 
 targets:
   Carlos:
@@ -23,6 +23,7 @@ targets:
       root_path: /Shared/Grupo1/AlfredoHernandezGonzalez/Target1
 
   Michelle:
+    default: true
     sync:
       exclude:
         - ./*
